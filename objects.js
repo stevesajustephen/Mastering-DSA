@@ -20,4 +20,4 @@ function same(arr1, arr2) {
   }
 }
 
-console.log(same([1, 2, 1], [1, 1, 4]));
+console.log(same([1, 1, 1], [1, 1, 4]));

@@ -1,27 +1,31 @@
-// time complexity n*n
-function uniqueSubString(str) {
-  let resultStr = "";
-  for (let i = 0; i < str.length; i++) {
-    let counter = {};
-    let subStr = "";
+// abcasded
 
+function subString(str) {
+  let tempStr;
+  let resultStr = "";
+  let seen;
+
+  for (let i = 0; i < str.length; i++) {
+    tempStr = "";
+    seen = {};
     for (let j = i; j < str.length; j++) {
-      const char = str[j];
-      if (!counter[char]) {
-        subStr = subStr + char;
-        counter[char] = (counter[char] || 0) + 1;
+      let char = str[j];
+      if (!seen[char]) {
+        tempStr = tempStr + char;
+        seen[char] = true;
       } else {
-        if (subStr.length > resultStr.length) {
-          resultStr = subStr;
+        if (tempStr.length > resultStr.length) {
+          resultStr = tempStr;
         }
         break;
       }
     }
-    if (resultStr.length < subStr.length) {
-      resultStr = subStr;
+    if (tempStr.length > resultStr.length) {
+      resultStr = tempStr;
     }
   }
+
   console.log(resultStr);
 }
 
-uniqueSubString("abcbef");
+subString("pwwkew");

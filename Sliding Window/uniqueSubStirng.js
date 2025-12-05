@@ -1,31 +1,30 @@
 // abcasded
 
-function subString(str) {
-  let tempStr;
-  let resultStr = "";
+function longestSubString(str) {
   let seen;
+  let temp;
+  let result = "";
 
   for (let i = 0; i < str.length; i++) {
-    tempStr = "";
+    temp = "";
     seen = {};
     for (let j = i; j < str.length; j++) {
-      let char = str[j];
+      char = str[j];
       if (!seen[char]) {
-        tempStr = tempStr + char;
+        temp = temp + char;
         seen[char] = true;
       } else {
-        if (tempStr.length > resultStr.length) {
-          resultStr = tempStr;
+        if (temp.length > result.length) {
+          result = temp;
         }
         break;
       }
     }
-    if (tempStr.length > resultStr.length) {
-      resultStr = tempStr;
+    if (temp.length > result.length) {
+      result = temp;
     }
   }
-
-  console.log(resultStr);
+  console.log(result);
 }
 
-subString("pwwkew");
+longestSubString("abcasded");

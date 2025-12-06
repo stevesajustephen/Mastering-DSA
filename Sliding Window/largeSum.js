@@ -1,21 +1,17 @@
-// [1,2,3,4,5,6,7,8,9,]
+//[-2,1,-3,5,-4,8,9]
 
-function largeSum(nums, n) {
-  let tempSum = 0;
-  let result = 0;
+function largeSum(nums) {
+  let max = -Infinity;
+  let current = 0;
+  for (let i = 0; i < nums.length; i++) {
+    current = current + nums[i];
 
-  for (let i = 0; i < n; i++) {
-    tempSum = tempSum + nums[i];
-  }
-  result = tempSum;
-
-  for (let i = n; i < nums.length; i++) {
-    tempSum = tempSum + nums[i] - nums[i - n];
-    if (tempSum > result) {
-      result = tempSum;
+    if (current < max) {
+      max = current;
+    }
+    if (current < 0) {
+      current = 0;
     }
   }
-  console.log(result);
+  return max;
 }
-
-largeSum([1, 2, 3, 4, 5, 6, 7, 8, 9], 3);

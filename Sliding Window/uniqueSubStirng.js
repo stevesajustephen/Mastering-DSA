@@ -27,4 +27,27 @@ function longestSubString(str) {
   console.log(result);
 }
 
-longestSubString("abcasded");
+// longestSubString("abcasded");
+
+function slidingWindow(str) {
+  let start = 0;
+  let seen = {};
+  let maxStart = 0;
+  let maxLength = 0;
+  for (let end = 0; end < str.length; end++) {
+    const char = str[end];
+
+    if (seen[char] !== undefined) {
+      start = seen[char] + 1;
+    }
+    seen[char] = end;
+
+    if (maxLength < end - start + 1) {
+      maxLength = end - start + 1;
+      maxStart = start;
+    }
+  }
+  console.log(str.slice(maxStart, maxStart + maxLength));
+}
+
+slidingWindow("abcasded");
